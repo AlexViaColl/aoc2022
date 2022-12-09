@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Call this script from a folder named dayXX.
+
+# The SESSION environment variable is expected to be set.
+# It can be obtained from the browser dev tools > Application > Cookies.
+
+DAY=$(basename $PWD | sed 's/day0*//')
+YEAR=$(date +%Y)
+curl --cookie "session=$SESSION" https://adventofcode.com/$YEAR/day/$DAY/input > input.txt
